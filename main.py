@@ -18,6 +18,17 @@ root.mainloop() # Bucle de la aplicación.
 # Una vez creada la ventana, el siguiente paso es calcular el área que tiene que limpiar el roomba. Para ello, dividimos la habitación en 4 rectángulos y calculamos su área.
 
 def area(base, altura):
-  return base * altura
+  '''
+  Función que devuelve el área de un rectángulo. Los datos introducidos van en cm y el resultado obtenido lo pasamos a m^2.
+  '''
+  return (base * altura)/10000
 
 area_total = area(500, 150) + area(101, 480) + area(309, 480) + area(220, 90)
+
+# Por último, calculamos el tiempo que tarda el roomba en limpiar la habitación con el mueble.
+
+a = 0,929 # Suponemos que el roomba limpia 92,9 m^2 cada 100 min aproximadamente. Por eso, limpia 0,929 m^2/min.
+
+tiempo = area_total/a # Obtenemos el tiempo en minutos.
+
+#Añadimos una etiqueta con el tiempo tarda el roomba en limpiar nuestra habitación
