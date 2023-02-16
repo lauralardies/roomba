@@ -49,5 +49,3 @@ class Aplicacion():
     etiqueta.pack()
     boton = Button(ventana_secundaria, text = "Salir", command = ventana_secundaria.destroy)
     boton.pack()
-
-aplicacion = Aplicacion()
