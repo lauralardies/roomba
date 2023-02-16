@@ -24,7 +24,7 @@ class Aplicacion():
     self.tiempo = self.area_total/self.a # Obtenemos el tiempo en minutos.
     
     # Añadimos un botón que nos abra una ventana con el tiempo que tarda el roomba en limpiar nuestra habitación.
-    self.boton1 = Button(self.root, text = 'Ver tiempo de recorrido', command = self.segunda_ventana(self.tiempo))
+    self.boton1 = Button(self.root, text = 'Ver tiempo de recorrido', command = lambda:[self.segunda_ventana(self.tiempo), self.root.lower()])
     self.boton1.pack(side=RIGHT)
 
     # Añadimos un botón para cerrar la aplicación.
