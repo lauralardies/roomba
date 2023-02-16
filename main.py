@@ -24,8 +24,12 @@ class Aplicacion():
     self.tiempo = self.area_total/self.a # Obtenemos el tiempo en minutos.
     
     # Añadimos un botón que nos abra una ventana con el tiempo que tarda el roomba en limpiar nuestra habitación.
-    self.boton = Button(self.root, text = 'Ver tiempo de recorrido', command = self.segunda_ventana(self.tiempo))
-    self.boton.pack(side=RIGHT))
+    self.boton1 = Button(self.root, text = 'Ver tiempo de recorrido', command = self.segunda_ventana(self.tiempo))
+    self.boton1.pack(side=RIGHT)
+
+    # Añadimos un botón para cerrar la aplicación.
+    self.boton2 = Button(self.root, text = 'Salir', command = self.root.destroy)
+    self.boton2.pack(side=LEFT)
     
     self.root.mainloop() # Bucle de la aplicación.
 
@@ -36,6 +40,14 @@ class Aplicacion():
     return (base * altura)/10000
 
   def segunda_ventana(self, tiempo):
-    print('Se estima que Roomba tarda ', tiempo, ' minutos en limpiar esta habitación.')
+    '''
+    Función que crea una segunda ventana.
+    '''
+    ventana_secundaria = Toplevel()
+    ventana_secundaria.title('Estimación')
+    etiqueta = Label(ventana_secundaria, text = 'Se estima que Roomba tarda en limpar la habitación en ' + str(tiempo) + ' minutos.')
+    etiqueta.pack()
+    boton = Button(ventana_secundaria, text = "Salir", command = ventana_secundaria.destroy)
+    boton.pack()
 
 aplicacion = Aplicacion()
